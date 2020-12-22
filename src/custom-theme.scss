@@ -1,0 +1,156 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* ======== Angular material custom themes ======== */ 
+/* ======== COLOR PALETTE ======== */ 
+/*color-darkbluegigroup mat color palette*/
+$my-custom-primary-color: (
+    50 : #e0ecf0,
+    100 : #b3cfda,
+    200 : #80afc1,
+    300 : #4d8ea8,
+    400 : #267696,
+    500 : #005e83,
+    600 : #00567b,
+    700 : #004c70,
+    800 : #004266,
+    900 : #003153,
+    A100 : #85c3ff,
+    A200 : #52aaff,
+    A400 : #1f91ff,
+    A700 : #0684ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+      )
+) !default;
+
+/*color-lightbluegigroup mat color palette*/
+$my-custom-accent-color: (
+    50 : #e0f6f8,
+    100 : #b3e8ee,
+    200 : #80d9e3,
+    300 : #4dc9d7,
+    400 : #26becf,
+    500 : #00b2c6,
+    600 : #00abc0,
+    700 : #00a2b9,
+    800 : #0099b1,
+    900 : #008aa4,
+    A100 : #cef6ff,
+    A200 : #9becff,
+    A400 : #68e2ff,
+    A700 : #4fdeff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+      )
+) !default;
+
+$my-app-primary: mat-palette($my-custom-primary-color);
+$my-app-accent:  mat-palette($my-custom-accent-color);
+$my-app-warn:    mat-palette($mat-red);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
+
+/* ======== TYPOGRAPHY ======== */ 
+// Fonts
+
+$custom-typography: mat-typography-config($font-family: '"Open Sans", "Helvetica Neue", Arial, sans-serif;');
+@include mat-core($custom-typography);
+
+
+/* Theme Config
+
+body {
+  --primary-color: #00b2c6;
+  --primary-lighter-color: #b3e8ee;
+  --primary-darker-color: #0099b1;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+}
+
+
+body {
+  --accent-color: #005e83;
+  --accent-lighter-color: #b3cfda;
+  --accent-darker-color: #004266;
+  --text-accent-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
+}
+
+$mat-accent: (
+  main: #005e83,
+  lighter: #b3cfda,
+  darker: #004266,
+  200: #005e83, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-accent: mat-palette($mat-accent, main, lighter, darker);
+
+body {
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}
+
+$mat-warn: (
+  main: #ff0000,
+  lighter: #ffb3b3,
+  darker: #ff0000,
+  200: #ff0000, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);;
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+*/
+
+
+
+.material-icons {
+  font-size: 24px;
+  font-family: 'Material Icons', 'Material Icons';  
+  .mat-badge-content {
+    font-family: 'Open Sans';
+  }
+}

@@ -1,0 +1,43 @@
+<!---->
+
+<div class="example-container" style="margin: 0 auto;width: 50%;" [formGroup]="formLogin">
+    <div class="columns">
+        <div class="column 
+">
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title _ngcontent-gbi-c9="" class="title-text mat-expansion-panel-header-title">
+                            <div _ngcontent-gbi-c9="" fxlayout="row" fxlayoutalign="start center" fxlayoutgap="40px"
+                                style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center flex-start; align-items: center;">
+                                <div _ngcontent-gbi-c9="" style="margin-right: 40px;"><img _ngcontent-gbi-c9=""
+                                        src="assets/blueman.png" id="publicCollapseImg"></div>
+                                <div _ngcontent-gbi-c9="">Candidati e Lavoratori</div>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="example__row">
+                        <mat-form-field _ngcontent-gbi-c10 style="width: 100%">
+                            <input formControlName="email" type="email" matInput placeholder="email" />
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field _ngcontent-gbi-c10 style="width: 100%">
+                            <input formControlName="password" type="password" matInput placeholder="password" />
+                        </mat-form-field>
+                    </div>
+                    <div _ngcontent-gbi-c10="" fxlayout.lt-md="column" fxlayoutalign="space-between center"
+                        fxlayoutalign.lt-md="center start" fxlayoutgap="0" fxlayoutgap.lt-md="20px"
+                        style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center space-between; align-items: center;">
+                        <a _ngcontent-gbi-c10="" style="margin-right: 0px;" id="publicForgotPassword"
+                            href="/retrievePwp?role=public">Recupera password</a>
+                        <!----><button _ngcontent-gbi-c10="" color="primary" mat-raised-button="" type="submit"
+                            (click)="login()" [disabled]="formLogin.invalid" class="mat-raised-button mat-primary ng-star-inserted"
+                            id="publicLoginButton" style="font-weight: bold;">Login</button>
+                        <!---->
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

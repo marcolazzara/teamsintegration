@@ -1,1 +1,754 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import '@angular/material/prebuilt-themes/purple-green.css';*/
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+html {
+  overflow-y: auto !important;
+}
+
+.row_actions {
+  margin-right: 1% !important;
+}
+
+/* ho creato un custom-theme.scss, queste righe non servono piu' in questo file
+@import '~@angular/material/theming';
+@include mat-core();
+$my-app-primary: mat-palette($mat-blue-grey);
+$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+  @include angular-material-theme($alternate-theme);
+}
+*/
+/* ---GLOBAL CONTAINER APP STYLE--- */
+.main_container_app_component {
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+/* ---GLOBAL COMPONENTS APP STYLE--- */
+/* ======== Colors ======== */
+$my-custom-primary-color: #005e83;
+$my-custom-accent-color: #00b2c6;
+$app-bg-color: #ffffff;
+$main-txt-color: #646464;
+$secondary-txt-color: #b4b4b4;
+$border-color: #cccccc;
+/* ======== Font-size ======== */
+$size-1: 32px;
+$size-2: 22px;
+$size-3: 15px;
+$size-4: 14px;
+$size-5: 13px;
+$size-6: 12px;
+/* ======== Font-weight ======== */
+$weight-normal: 600;
+$semibold: 700;
+$bold: 800;
+$ultrabold: 900;
+/* ======== layout flat, no-shadow ======== */
+$radius: 2px;
+$box-shadow: none;
+
+body {
+  background-color: $app-bg-color;
+  color: $main-txt-color;
+}
+/* ======== TYPOGRAPHY ======== */
+.mat-typography {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: $bold;
+  color: $my-custom-primary-color;
+}
+.blueTitle {
+    font-size: $size-3 !important;
+    font-weight:$bold !important;
+    color:$my-custom-primary-color !important;
+    text-transform: uppercase;
+    line-height: 150%;
+}
+.mat-dialog-title.blueTitle {margin-bottom:0px;}
+.light_blue_title{
+    font-size: $size-4 !important;
+    font-weight:$semibold !important;
+    color:$my-custom-accent-color;
+}
+/* ======== BUTTON ======== */ 
+
+button:not([class*=mat-fab]),
+button:not([class*=mat-mini-fab]) {
+    border-radius:$radius !important;
+    text-transform:uppercase;
+}
+
+.mat-raised-button {
+  border-radius: $radius !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.mat-raised-button:not([class*=mat-elevation-z]),
+.mat-fab:not([class*=mat-elevation-z]), 
+.mat-mini-fab:not([class*=mat-elevation-z]){
+    box-shadow:$box-shadow !important;
+}
+.mat-button {
+  font-weight: $semibold !important;
+  margin-left: 10px;
+  padding: 0px 12px !important;
+  font-size: 12px !important;
+}
+.mat-button[color='primary'] {
+  background-color: $my-custom-primary-color;
+  color: #ffffff !important;
+  transition: box-shadow 0.4s;
+  -moz-transition: box-shadow 0.4s;
+  -ms-transition: box-shadow 0.4s;
+  -o-transition: box-shadow 0.4s;
+  -webkit-transition: box-shadow 0.4s;
+}
+.mat-button.mat-primary:hover {
+  box-shadow: inset 0px 0px 0px 32px $my-custom-accent-color !important;
+  border-color: $my-custom-accent-color !important;
+}
+button.mat-secondary {
+  border-radius: $radius !important;
+  border: 1px solid $app-bg-color;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+button.mat-secondary:hover {
+  border: 1px solid #bfc0c1;
+}
+.mat-button.mat-primary[disabled],
+.mat-button[disabled][disabled] {
+  color: rgba(0, 0, 0, 0.96);
+}
+.mat-button.mat-primary.btn:disabled {
+  opacity: 0.65;
+  background-color: #9c9e9f;
+}
+.mat-button.mat-primary.btn:disabled:hover {
+  background-color: #9c9e9f;
+}
+.mat-button:disabled {
+  opacity: 0.65;
+  background-color: #9c9e9f;
+}
+.mat-button:disabled:hover {
+  background-color: #9c9e9f;
+}
+.mat-button:disabled {
+  cursor: not-allowed !important;
+}
+.mat-stroked-button {
+  font-weight: $semibold !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-size: 12px !important;
+  -webkit-box-shadow: inset 0px 0px 0px 0px transparent;
+  -moz-box-shadow: inset 0px 0px 0px 0px transparent;
+  -o-box-shadow: inset 0px 0px 0px 0px transparent;
+  box-shadow: inset 0px 0px 0px 0px transparent;
+  transition: box-shadow 0.4s;
+  -moz-transition: box-shadow 0.4s;
+  -ms-transition: box-shadow 0.4s;
+  -o-transition: box-shadow 0.4s;
+  -webkit-transition: box-shadow 0.4s;
+}
+button.mat-secondary {
+  border: 1px solid $app-bg-color;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+button.mat-secondary:hover {
+  border: 1px solid #bfc0c1;
+}
+
+/* btn indietro*/
+.back-btn.mat-button {
+  text-transform: none;
+  font-weight: $weight-normal !important;
+  background-color: $app-bg-color;
+  color: $my-custom-accent-color;
+  font-size: $size-4 !important;
+  border: 0px;
+}
+.back-btn.mat-button .material-icons {
+  font-size: 22px !important;
+}
+.back-btn.mat-button.mat-secondary:hover {
+  color: $app-bg-color !important;
+  border: 0px;
+  -webkit-box-shadow: inset 0px 0px 0px 18px $my-custom-accent-color;
+  -moz-box-shadow: inset 0px 0px 0px 18px $my-custom-accent-color;
+  -o-box-shadow: inset 0px 0px 0px 18px $my-custom-accent-color;
+  box-shadow: inset 0px 0px 0px 18px $my-custom-accent-color;
+}
+
+/* ======== custom box con bordo grigio e bordo inferiore colorato ======== */
+.bordered {
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  border-bottom: 5px solid $my-custom-accent-color;
+  padding: 20px 20px;
+}
+/* bordo contenitore tabelle : non usare selettore mat-elevation che mette ombra, lo stile gigroup è piatto*/
+.table-bordered {
+  border: 1px solid $border-color;
+  border-radius: $radius;
+}
+
+/* ======== MAT PANEL ========*/
+.mat-expansion-indicator {
+  margin-top: -5px;
+}
+.mat-accordion .mat-expansion-panel:last-of-type {
+  border-bottom-right-radius: $radius !important;
+  border-bottom-left-radius: $radius !important;
+}
+.mat-accordion .mat-expansion-panel:first-of-type {
+  border-top-right-radius: $radius !important;
+  border-top-left-radius: $radius !important;
+}
+.mat-expansion-panel {
+  border-radius: $radius !important;
+}
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none !important;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+}
+.mat-expansion-panel.mat-expanded:not([class*='mat-elevation-z']) {
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-bottom: 5px solid $my-custom-accent-color;
+}
+/* ======== MAT ICONS ========
+.blueTitle .material-icons {
+    margin-right:5px;
+}
+.mat-button-wrapper mat-icon {margin-right:5px;}*/
+/* ======== MAT CARDS ========*/
+.mat-card {
+  border-radius: $radius !important;
+}
+.mat-card:not([class*='mat-elevation-z']) {
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-bottom: 5px solid $my-custom-accent-color;
+  box-shadow: $box-shadow !important;
+}
+
+/* =mat-card senza border-bottom celeste=*/
+div.gray-border,
+.mat-card.gray-border:not([class*=mat-elevation-z]) {
+    border: 1px solid $border-color;
+    box-sizing: border-box;
+    border-bottom:1px solid $border-color !important;
+}
+
+.card-row__title {
+  font-size: $size-5;
+  color: $secondary-txt-color;
+  font-weight: $weight-normal;
+}
+.card-row__title mat-label {
+  font-size: $size-5;
+  color: $secondary-txt-color;
+  font-weight: $weight-normal;
+}
+.card-row__body {
+  font-size: $size-5;
+  color: $main-txt-color;
+  font-weight: $semibold;
+}
+
+/* =mat-panel child senza border-bottom celeste=*/
+.mat-expansion-panel.mat-expanded.gray-border:not([class*=mat-elevation-z]) {
+    border: 1px solid $border-color;
+    box-sizing: border-box;
+    border-bottom: 1px solid $border-color !important;
+}
+.mat-expansion-panel.mat-expanded.gray-border .mat-grid-tile .mat-figure {
+  align-items: flex-start !important;
+}
+
+/*MAT TAB GROUP*/
+.mat-tab-group {
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-bottom: 5px solid $my-custom-accent-color;
+}
+.mat-tab-group .mat-tab-label,
+.mat-tab-group .mat-tab-link {
+  text-transform: uppercase;
+  font-size: $size-3;
+  font-weight: $bold;
+}
+.mat-tab-group .mat-tab-label.mat-tab-label-active {
+  color: $my-custom-accent-color;
+  opacity: 1;
+}
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $my-custom-accent-color !important;
+  height: 4px;
+}
+.mat-tab-group .mat-cell,
+.mat-tab-group .mat-footer-cell {
+  color: $main-txt-color;
+}
+.mat-tab-group .mat-header-cell {
+  font-size: $size-5;
+  font-weight: $semibold;
+  color: $my-custom-primary-color !important;
+}
+.mat-tab-body-wrapper {
+  margin-bottom: 20px;
+}
+.mat-tab-group
+  .mat-expansion-panel.mat-expanded:not([class*='mat-elevation-z']) {
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-bottom: 5px solid $my-custom-primary-color !important;
+}
+/*MAT DIALOG*/
+.mat-dialog-container {
+  border-radius: $radius !important;
+  min-height: 100px;
+}
+.mat-dialog-title {
+  font-weight: $bold !important;
+  color: $my-custom-primary-color !important;
+  text-transform: uppercase;
+}
+.mat-dialog-actions .material-icons {
+  font-size: 21px !important;
+}
+.mat-dialog-content {min-height: 80px;}
+.mat-dialog-actions .material-icons {font-size:21px !important}
+.mat-dialog-actions {margin-bottom: -5px !important;}
+/*EFFETTO FOCUS SU SELECT E TEXTAREA*/
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color:  $my-custom-accent-color !important;
+}
+.mat-form-field.w-100{width:98%;}
+.mat-form-field.w-xs{width:40%;}
+
+/*MAT_FORM_FIELD DISABLED*/
+.mat-input-element:disabled,
+.mat-form-field-type-mat-native-select.mat-form-field-disabled
+  .mat-form-field-infix::after {
+  color: rgba(100, 100, 100, 0.9) !important;
+}
+/*MAT_FORM_FIELD LABEL STYLE overwrite*/
+.mat-form-field-appearance-legacy.mat-form-field-can-float
+  .mat-input-server:focus
+  + .mat-form-field-label-wrapper
+  .mat-form-field-label,
+.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.28125em) scale(0.85) perspective(100px)
+    translateZ(0.00106px) !important;
+  -ms-transform: translateY(-1.28119em) scale(0.85) !important;
+  width: 133.3333933333% !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(100, 100, 100, 0.65) !important;
+}
+
+/*CHECKBOX*/
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $my-custom-primary-color;
+}
+/*CALENDAR icon*/
+.mat-form-field-appearance-legacy
+  .mat-form-field-prefix
+  .mat-datepicker-toggle-default-icon,
+.mat-form-field-appearance-legacy
+  .mat-form-field-suffix
+  .mat-datepicker-toggle-default-icon {
+  width: 3em !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-prefix .mat-icon-button,
+.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button {
+  font: inherit;
+  vertical-align: baseline;
+  width: 3em !important;
+  outline: none;
+  background-color: transparent;
+}
+/* MAT-DATE PICKER */
+.mat-datepicker-content {
+  box-shadow: none;
+  border-radius: $radius !important;
+  border: 1px solid $border-color;
+  background-color: $app-bg-color;
+}
+.mat-calendar-period-button.mat-button {
+  font-size: 15px;
+  color: $my-custom-primary-color;
+}
+.mat-calendar-arrow {
+  border-top-color: $my-custom-primary-color;
+}
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: $my-custom-accent-color;
+}
+.mat-calendar-body-cell-content {
+  border-radius: $radius !important;
+  border-width: 2px !important;
+}
+.mat-calendar-body-selected {
+  background-color: $my-custom-primary-color;
+}
+.mat-datepicker-toggle {
+  color: rgba(0, 0, 0, 0.53);
+  background-color: $app-bg-color;
+}
+.mat-datepicker-toggle-active {
+  color: $my-custom-accent-color;
+  background-color: $app-bg-color;
+}
+.mat-datepicker-toggle-active.mat-accent {
+  color: #ff4081;
+  background-color: $app-bg-color;
+}
+
+/*ALERT*/
+.alert {
+  border-radius: $radius !important;
+  padding: 0px 15px 15px 15px;
+}
+.alert-danger .material-icons {
+  font-size: 32px;
+  display: inline;
+  position: relative;
+  top: 10px;
+}
+
+/*SELECT*/
+.mat-form-field-label-wrapper,
+.mat-select-value-text {
+  line-height: 125%;
+}
+.mat-form-field-label-wrapper {
+  /*font-size: 16px;*/
+  color: $secondary-txt-color;
+  font-weight: $weight-normal;
+  text-shadow: none !important;
+}
+.mat-select-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none !important;
+  border-radius: $radius;
+  border: 1px solid $border-color;
+}
+.mat-select-panel-wrap .mat-option {
+  color: $main-txt-color;
+}
+.mat-option:focus:not(.mat-option-disabled),
+.mat-option:hover:not(.mat-option-disabled) {
+  background: $my-custom-accent-color !important;
+  color: $app-bg-color !important;
+  font-weight: $weight-normal;
+}
+.mat-option.mat-active {
+  background: $my-custom-accent-color !important;
+  color: $app-bg-color !important;
+  font-weight: $weight-normal;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $my-custom-accent-color !important;
+}
+.mat-select-value {
+  color: $main-txt-color !important;
+  font-weight: $semibold;
+}
+.mat-input-element {
+  font-size: $size-4 !important; /*ora è 14px, sarebbe da ingrandire ma nel mydata il font-size è addirittura 13px*/
+  line-height: 125% !important;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $main-txt-color !important;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+.mat-option.mat-active.mat-selected .mat-pseudo-checkbox-checked span.mat-option-text{    
+    color:$app-bg-color !important;
+}
+/*MAT TABLE*/
+
+.mat-table .mat-cell,
+.mat-footer-cell {
+  color: $main-txt-color;
+}
+/* hover rows*/
+.mat-table tr.mat-row:hover {
+  background-color: #f5fdff !important;
+}
+.mat-table th.mat-header-cell {
+  font-size: $size-5;
+  font-weight: $semibold;
+  color: $my-custom-primary-color !important;
+}
+/* striped rows*/
+.mat-table .mat-row:nth-child(even) {
+  background-color: $app-bg-color;
+}
+
+.mat-table .mat-row:nth-child(odd) {
+  background-color: #ebf1f3;
+}
+/* sovrascrive bulma.css style */
+table td,
+table th {
+  vertical-align: middle;
+}
+/*materialicon size nelle intestazioni di tabella, es icona add*/
+th .material-icons {
+    font-size: 30px;
+    }
+.xl-ico{
+    font-size: 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+/*FUSIONCHARTS COLORPALETTE&TYPOGRAPHY*/
+svg text{
+    font-family:"Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+  }
+
+/*SCROLLBAR STYLE TEST*/
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    background-color: #F5F5F5;
+    border:1px solid $border-color;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $my-custom-primary-color;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $my-custom-accent-color;
+  /*
+background-image: -webkit-gradient(linear, 0 0, 0 100%,
+                   color-stop(.5, rgba(255, 255, 255, .2)),
+   color-stop(.5, transparent), to(transparent));*/
+}
+
+
+
+
+
+
+@media (min-width: 1440px){
+.wrapper {
+    width: 1280px;
+    max-width: 1280px;
+}
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+.wrapper--navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu {
+    display: flex;
+    align-items: center;
+}
+.pointer[_ngcontent-gbi-c2] {
+    cursor: pointer;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.mat-expansion-panel {
+    box-sizing: content-box;
+    display: block;
+    margin: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: margin 225ms cubic-bezier(.4,0,.2,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+.title-text[_ngcontent-gbi-c9] {
+    color: #005e83;
+}
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+    font-weight: 800;
+    color: #646464;
+    font-size: 15px;
+}
+.mat-expansion-panel-header {
+    font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+h3 {
+  margin: 0 0 10px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+.modal-backdrop  {
+  z-index: 0 !important;
+}
+.modal  {
+  z-index: 0 !important;
+}
+
+.mat-button {
+  text-transform: uppercase;
+  box-shadow: none!important;
+  font-weight: 800;
+  background-color: transparent;
+  color: #b4b4b4;
+}
+.menu .mat-button {
+  color: #646464;
+}
+@media (min-width: 1440px){
+.wrapper {
+    width: 1280px;
+    max-width: 1280px;
+}
+}
+.hero .mat-card .mat-list-item-content {
+  justify-content: space-between;
+  font-size: 15px;
+  color: #005e83;
+  font-weight: 800;
+}
+.label[_ngcontent-ocv-c7] {
+  flex: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 20px;
+}
+.hero .mat-card .mat-list-item {
+  height: 59px;
+}
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  height: inherit;
+}
+.mat-list-base .mat-list-item .mat-list-item-ripple, .mat-list-base .mat-list-option .mat-list-item-ripple {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.hero .mat-card {
+  padding: 0;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+mat-card[_ngcontent-ocv-c7] {
+  margin: 0 10px;
+}
+.mat-card {
+  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  display: block;
+  position: relative;
+  padding: 16px;
+  border-radius: 4px;
+}
+@media (min-width: 768px){
+.mat-card {
+  min-width: 0;
+}
+}
+.mat-card {
+  border-bottom: 1px solid #005e83;
+  min-width: 100%;
+}
+.mat-card {
+  background: #fff;
+  color: rgba(0,0,0,.87);
+}
+.mat-button-toggle, .mat-card {
+  font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;
+}
+.mat-typography {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.imgmatitem{
+  height: 30px !important;
+}
+.mat-list-item-content{
+  width: 100% !important;
+}
+.mat-typography h2 {
+  color: #646464;
+  text-transform: uppercase;
+}
+.mat-h2, .mat-title, .mat-typography h2 {
+  font: 800 30px/36px "Open Sans","Helvetica Neue",Arial,sans-serif;
+  margin: 0 0 16px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #005e83;
+    border-color: #005e83;
+}
